@@ -12,6 +12,26 @@ docker stop baa7e0faa296
 docker rm baa7e0faa296
 ```
 
+### List all networks a container belongs to
+```
+docker inspect -f '{{range $key, $value := .NetworkSettings.Networks}}{{$key}} {{end}}' [container]
+```
+
+### List all containers belonging to a network by name
+```
+docker network inspect -f '{{range .Containers}}{{.Name}} {{end}}' [network]
+```
+
+### Attach a running container to a network
+```
+docker network connect [network] [container]
+```
+
+### With containerA already running, test if containerA can connect to containerB by using its name
+```
+docker exec [containerA] ping [containerB] -c2
+```
+
 ## docker-compose
 ```
 docker-compose version
