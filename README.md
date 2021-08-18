@@ -70,6 +70,19 @@ docker save demonginx > demonginx.tar
 sudo microk8s ctr image import demonginx.tar
 ```
 
+### Info about kubernetes status
+```
+kubectl version
+kubectl get deployments
+kubectl describe deployments
+kubectl get pods
+kubectl describe pods
+kubectl get replicasets
+kubectl describe replicasets
+kubectl get services
+kubectl describe services
+```
+
 # Ansible
 
 ### Create and copy ssh key to managed host
