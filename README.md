@@ -1,4 +1,4 @@
-## Docker
+# Docker
 ```
 sudo service docker start
 sudo service docker stop
@@ -38,7 +38,7 @@ docker-compose version
 docker-compose up -d
 ```
 
-## kubernetes/minikube
+# kubernetes/minikube
 ```
 minikube start
 minikube dashboard
@@ -68,4 +68,23 @@ sudo microk8s dashboard-proxy
 
 docker save demonginx > demonginx.tar
 sudo microk8s ctr image import demonginx.tar
+```
+
+# Ansible
+
+### Create and copy ssh key to managed host
+```
+ssh-keygen
+ssh-copy-id username@destinationserver
+```
+
+### Operations
+```
+ansible-inventory --list -y
+ansible all -m ping
+```
+
+### Running commands
+```
+ansible all -a "df -h" -u root****
 ```
