@@ -80,7 +80,8 @@ ssh-copy-id username@destinationserver
 
 ### Operations
 ```
-ansible-inventory --list -y
+ansible-inventory --list -y (uses default /etc/ansible/hosts file)
+ansible-inventory -i path/to/hosts --list -y
 ansible all -m ping
 ```
 
