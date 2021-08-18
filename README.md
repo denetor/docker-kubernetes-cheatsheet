@@ -89,3 +89,8 @@ ansible all -m ping
 ```
 ansible all -a "df -h" -u root****
 ```
+
+### Running playbooks
+```
+ansible-playbook -i path/to/hosts ~/kube-cluster/kube-dependencies.yml
+```
