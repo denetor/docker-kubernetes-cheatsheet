@@ -32,7 +32,17 @@ docker network connect [network] [container]
 docker exec [containerA] ping [containerB] -c2
 ```
 
-## docker-compose
+### Remove all dangling images
+```
+docker image prune
+```
+
+### Remove all unused images
+```
+docker image prune -a
+```
+
+# docker-compose
 ```
 docker-compose version
 docker-compose up -d
@@ -82,6 +92,21 @@ kubectl describe replicasets
 kubectl get services
 kubectl describe services
 ```
+
+### Remove kubernetes
+#### CentOS
+```
+#!/bin/sh
+set -x
+kubeadm reset --force
+yum remove -y kubeadm kubectl kubelet kubernetes-cni kube*
+yum autoremove -y
+[ -e ~/.kube ] && rm -rf ~/.kube
+[ -e /etc/kubernetes ] && rm -rf /etc/kubernetes
+[ -e /opt/cni ] && rm -rf /opt/cni
+# credits: https://gist.github.com/scue/bde21f6a85c98f306f4c3272c6249092
+```
+
 
 # Ansible
 
